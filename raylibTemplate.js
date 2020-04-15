@@ -192,7 +192,7 @@ Module['FS_createPath']('/resources', 'mapa', true, true);
   }
 
  }
- loadPackage({"files": [{"start": 0, "audio": 0, "end": 60058, "filename": "/resources/mapa.png"}, {"start": 60058, "audio": 0, "end": 88849, "filename": "/resources/background.png"}, {"start": 88849, "audio": 0, "end": 99542, "filename": "/resources/shell.html"}, {"start": 99542, "audio": 0, "end": 102248, "filename": "/resources/ship.png"}, {"start": 102248, "audio": 1, "end": 2441168, "filename": "/resources/Cyberpunk Moonlight Sonata.mp3"}, {"start": 2441168, "audio": 0, "end": 2727453, "filename": "/resources/mapa/tileset.png"}, {"start": 2727453, "audio": 0, "end": 2731495, "filename": "/resources/mapa/mapa.json"}], "remote_package_size": 2731495, "package_uuid": "a8c55b10-edd6-41be-be5b-77e4df46a34b"});
+ loadPackage({"files": [{"start": 0, "audio": 0, "end": 60058, "filename": "/resources/mapa.png"}, {"start": 60058, "audio": 0, "end": 88849, "filename": "/resources/background.png"}, {"start": 88849, "audio": 0, "end": 99542, "filename": "/resources/shell.html"}, {"start": 99542, "audio": 0, "end": 102248, "filename": "/resources/ship.png"}, {"start": 102248, "audio": 1, "end": 2441168, "filename": "/resources/Cyberpunk Moonlight Sonata.mp3"}, {"start": 2441168, "audio": 0, "end": 2727453, "filename": "/resources/mapa/tileset.png"}, {"start": 2727453, "audio": 0, "end": 2731495, "filename": "/resources/mapa/mapa.json"}], "remote_package_size": 2731495, "package_uuid": "c57ae22d-2804-44d5-88b8-31cb7273d070"});
 
 })();
 
@@ -1464,7 +1464,7 @@ function abortStackOverflowEmterpreter() {
 var TOTAL_STACK = 5242880;
 if (Module['TOTAL_STACK']) assert(TOTAL_STACK === Module['TOTAL_STACK'], 'the stack size can no longer be determined at runtime')
 
-var INITIAL_TOTAL_MEMORY = Module['TOTAL_MEMORY'] || 16777216;if (!Object.getOwnPropertyDescriptor(Module, 'TOTAL_MEMORY')) Object.defineProperty(Module, 'TOTAL_MEMORY', { configurable: true, get: function() { abort('Module.TOTAL_MEMORY has been replaced with plain INITIAL_TOTAL_MEMORY') } });
+var INITIAL_TOTAL_MEMORY = Module['TOTAL_MEMORY'] || 33554432;if (!Object.getOwnPropertyDescriptor(Module, 'TOTAL_MEMORY')) Object.defineProperty(Module, 'TOTAL_MEMORY', { configurable: true, get: function() { abort('Module.TOTAL_MEMORY has been replaced with plain INITIAL_TOTAL_MEMORY') } });
 
 assert(INITIAL_TOTAL_MEMORY >= TOTAL_STACK, 'TOTAL_MEMORY should be larger than TOTAL_STACK, was ' + INITIAL_TOTAL_MEMORY + '! (TOTAL_STACK=' + TOTAL_STACK + ')');
 
