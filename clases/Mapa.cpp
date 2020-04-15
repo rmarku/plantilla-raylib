@@ -41,7 +41,12 @@ Mapa::Mapa(std::string file) {
 }
 
 void Mapa::dibujar() {
-    Rectangle tile_rec = {0.0f, 0.0f, map.getTileSize().x, map.getTileSize().y};
+    Rectangle tile_rec;
+    tile_rec.x = 0.0f;
+    tile_rec.y = 0.0f;
+    tile_rec.width = map.getTileSize().x;
+    tile_rec.height = map.getTileSize().y;
+
     int firstId = map_tileset->getFirstgid(); //First tile id of the tileset
     int columns = map_tileset->getColumns(); //For the demo map it is 8.
     int rows = map_tileset->getTileCount() / columns;
@@ -53,7 +58,7 @@ void Mapa::dibujar() {
     auto &c = map.getBackgroundColor();
     ClearBackground({c.r, c.g, c.b, c.a}); // Limpio la pantalla con blanco
 
-    for(auto nombre: {"Fondo", "Frente"}){
+    for (auto nombre: {"Fondo", "Frente"}) {
         auto *layer = map.getLayer(nombre);
         for (auto&[pos, tile] : layer->getTileData()) //Loops through absolutely all existing tiles
         {
