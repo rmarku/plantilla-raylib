@@ -67,7 +67,7 @@ int main() {
 static void UpdateDrawFrame(void) {
 
     // siempre hay que reproducir la musica que esta actualmente
-    // UpdateMusicStream(music);
+    UpdateMusicStream(music);
 
     // Verifico Entradas de eventos.
     if (IsKeyDown(KEY_RIGHT)) {
