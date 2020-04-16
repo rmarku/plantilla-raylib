@@ -16,10 +16,11 @@ class Mapa {
     tson::Tileset *map_tileset;
 
 public:
+    Vector2 player_init_pos;
+
     Mapa(std::string file);
 
     void dibujar();
-    Vector2 player_init_pos;
 };
 
 

@@ -1,8 +1,14 @@
-#include <raylib.h>
+
 #include <iostream>
+
+#include <raylib.h>
 
 #include "clases/Nave.h"
 #include "clases/Mapa.h"
+
+#define PHYSAC_NO_THREADS
+#define PHYSAC_IMPLEMENTATION
+#include <physac.h>
 
 #if defined(PLATFORM_WEB) // Para crear HTML5
 #include <emscripten/emscripten.h>
@@ -28,10 +34,14 @@ int main() {
     music = LoadMusicStream("resources/Cyberpunk Moonlight Sonata.mp3");
 
     PlayMusicStream(music);
-    mapa = new Mapa("resources/mapa/mapa.json");
+    mapa = new Mapa("resources/mapa/mapa1.json");
 
     player = new Nave("resources/ship.png", mapa->player_init_pos);
 
+    InitPhysics();
+    PhysicsBody floor = CreatePhysicsBodyRectangle((Vector2) {screenWidth / 2, screenHeight}, 500, 100, 10);
+    floor->enabled = false; // Disable body state to convert it to static (no dynamics, but collisions)
+    PhysicsBody playerBody = CreatePhysicsBodyRectangle(player->getNavePos(), 45, 30, 10);
 
     // Configuro la Cámara
     camera.target = {player->getNavePos().x, player->getNavePos().y - 110}; // Número Mágico 110.
@@ -69,6 +79,8 @@ static void UpdateDrawFrame(void) {
     // siempre hay que reproducir la musica que esta actualmente
     UpdateMusicStream(music);
 
+    RunPhysicsStep();
+    
     // Verifico Entradas de eventos.
     if (IsKeyDown(KEY_RIGHT)) {
         player->move_x(4);
